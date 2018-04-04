@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
     void *space=malloc(500);
     memory_start=space;
     memory_current=space;
-    cout<<memory_current<<endl;
+    //cout<<memory_current<<endl;
 
     data_list l;
     l.set_memory(memory_current);
-    cout<<l.get_memory()<<endl;
+    //cout<<l.get_memory()<<endl;
     string id="x";
     int data_type=5;
     string data="2";

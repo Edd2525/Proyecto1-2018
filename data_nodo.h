@@ -1,11 +1,58 @@
 #ifndef DATA_NODO_H
 #define DATA_NODO_H
+#include "iostream"
+#include "strstream"
+using namespace std;
 
-
-class data_nodo
-{
+//estructura del nodo que almacen a las variables
+class node{
 public:
-    data_nodo();
-};
+    node();
+    /**
+     * @brief node inicializa una nueva variable con su tipo de dato y su id unico
+     * @param id    el nombre de la variable
+     * @param data_ el tipo de variable que es(int,char,double...)
+     */
+    node(string id, int data_);
 
+
+    /**
+     * @brief assign_memory     asigan un espacio de memoria reservado a la variable
+     * @param current_memory    la ubicacion actual de la memoria
+     * @param data              el tipo de dato de la variable
+     */
+    void assign_memory(void *current_memory, string data);
+
+
+    /**
+     * @brief get_data_type     obtener el tipo de varible del nodo
+     * @return                  retorna su tipo
+     */
+    string get_data_type();
+
+
+    /**
+     * @brief get_memory_move   obtener el espacio de memoria luego de agregar una variable
+     * @return                  retorna el espacio de memoria que sigue
+     */
+    int get_memory_move();
+
+
+    /**
+     * @brief print_node    obtener todos el contenido del nodo con fines de pruebas
+     */
+    void print_node();
+
+
+    ~node();
+
+
+public:
+    string ID;//nombre del nodo
+    int data_type;//identificar el tipo del dato
+    void *data;//especio de memoria del dato
+    node *next;
+
+
+};
 #endif // DATA_NODO_H
