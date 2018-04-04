@@ -43,6 +43,11 @@ void node::assign_memory(void *current_memory, string data)
 
 }
 
+string node::get_id()
+{
+    return this->ID;
+}
+
 string node::get_data_type()
 {
     switch (this->data_type) {
@@ -66,6 +71,37 @@ string node::get_data_type()
         return "No asignado";
         break;
     }
+}
+
+string node::get_data()
+{
+    int op=this->data_type;
+    if(op==1){
+        int x=*(int*)this->data;
+        string str=to_string(x);
+        return str;
+    }
+    else if(op==2){
+        long x=*(long*)this->data;
+        string str=to_string(x);
+        return str;
+    }else if(op==3){
+        return "str";
+    }else if(op==4){
+        float x=*(float*)this->data;
+        string str=to_string(x);
+        return str;
+    }else if(op==5){
+        double x=*(double*)this->data;
+        string str=to_string(x);
+        return str;
+    }else
+        return "Junk";
+}
+
+void *node::get_memory()
+{
+    return this->data;
 }
 
 int node::get_memory_move()

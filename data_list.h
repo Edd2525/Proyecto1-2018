@@ -10,6 +10,13 @@ public:
     void set_memory(void *memory);
     void *get_memory();
     bool initialize_data(string id, int data_, string data);
+    bool find_id(string id);
+    node *get_node(string id);
+
+    string get_id(node *nodo);
+    string get_type(node *node);
+    void *get_memory(node *nodo);
+    string get_data(node *nodo);
     void show_list();
 
 private:

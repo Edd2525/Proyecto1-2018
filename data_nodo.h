@@ -23,6 +23,11 @@ public:
      */
     void assign_memory(void *current_memory, string data);
 
+    /**
+     * @brief get_id    obtener id de la variable
+     * @return          retorna el id;
+     */
+    string get_id();
 
     /**
      * @brief get_data_type     obtener el tipo de varible del nodo
@@ -30,6 +35,17 @@ public:
      */
     string get_data_type();
 
+    /**
+     * @brief get_data      obtener el contenido del dato
+     * @return              retorna el contenido del dato
+     */
+    string get_data();
+
+    /**
+     * @brief get_memory    obtener la memoria del dato
+     * @return              retorna la memoria
+     */
+    void *get_memory();
 
     /**
      * @brief get_memory_move   obtener el espacio de memoria luego de agregar una variable
