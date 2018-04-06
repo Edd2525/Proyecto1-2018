@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "data_list.h"
+#include "execute.h"
+#include "interpreter.h"
 int main(int argc, char *argv[])
 {
     /*QApplication a(argc, argv);
@@ -19,7 +21,7 @@ int main(int argc, char *argv[])
     l.set_memory(memory_current);
     //cout<<l.get_memory()<<endl;
     string id="x";
-    int data_type=5;
+    int data_type=1;
     string data="2";
 
     string id2="t";
@@ -34,27 +36,33 @@ int main(int argc, char *argv[])
     int data_type4=3;
     string data4="2332";
 
-    string id5="x";
+    string id5="y";
     int data_type5=4;
     string data5="2543";
 
+    string code="int x;"
+                "int y=6;"
+                "x=2;"
+                "y=x;"
+                "x=y+x;"
+                "long h;"
+                "double u;"
+                "float b;"
+                "char p;";
+    cout<<code<<endl;
+    interpreter in;
+    in.separate(code);
 
-    l.initialize_data(id,data_type,data);
-    l.initialize_data(id2,data_type2,data2);
-    l.initialize_data(id3,data_type3,data3);
-    //l.initialize_data(id4,data_type4,data4);//char arreglar
-    l.initialize_data(id5,data_type5,data5);
 
-    l.show_list();
-
-    node *x=l.get_node("o");
-    if(x!=NULL){
-        cout<<l.get_id(x)<<endl;
-        cout<<l.get_type(x)<<endl;
-        cout<<l.get_data(x)<<endl;
-        cout<<l.get_memory(x)<<endl;
-    }
-
+    /*execute ex;
+    ex.set_current(memory_current);
+    ex.initialize_data(id,data_type,data);
+    ex.initialize_data(id2,data_type2,data2);
+    ex.initialize_data(id3,data_type3,data3);
+    ex.initialize_data(id5,data_type5,data5);
+    ex.show_list();
+    ex.operation(5,"x","t");
+    ex.show_list();*/
 
     return 0;
 }

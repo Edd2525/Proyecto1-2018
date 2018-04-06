@@ -5,6 +5,7 @@ data_list::data_list()
     node_head=NULL;
     node_tail=NULL;
     current=NULL;
+    start=NULL;
 }
 
 data_list::~data_list()
@@ -15,6 +16,7 @@ data_list::~data_list()
 void data_list::set_memory(void *memory)
 {
     current=memory;
+    start=memory;
 }
 
 void *data_list::get_memory()

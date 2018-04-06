@@ -129,6 +129,11 @@ int node::get_memory_move()
     }
 }
 
+int node::get_op_data()
+{
+    return this->data_type;
+}
+
 
 void node::print_node()
 {   int op=this->data_type;

@@ -53,6 +53,11 @@ public:
      */
     int get_memory_move();
 
+    /**
+     *@brief get_op_data    obtener el valor definido de cada tipo de dato
+     * @return              retorna un int es el codigo del tipo de dato
+     */
+    int get_op_data();
 
     /**
      * @brief print_node    obtener todos el contenido del nodo con fines de pruebas

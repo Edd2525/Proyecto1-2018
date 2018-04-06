@@ -15,10 +15,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     data_nodo.cpp \
-    data_list.cpp
+    data_list.cpp \
+    execute.cpp \
+    interpreter.cpp
 
 HEADERS  += mainwindow.h \
     data_nodo.h \
-    data_list.h
+    data_list.h \
+    execute.h \
+    interpreter.h
 
 FORMS    += mainwindow.ui
