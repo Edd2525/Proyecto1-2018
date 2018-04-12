@@ -80,6 +80,12 @@ public:
      */
     bool divide(node *origen, node *operation);
 
+    bool assingnment_value(node *origen, string value);
+    bool sum_value(node *origen, string value);
+    bool subtraction_value(node *origen, string value);
+    bool multiply_value(node *origen, string value);
+    bool divide_value(node *origen, string value);
+
     /**
      * @brief get_msg   obtener los mensajes guardados de como va el programa
      * @return          retorna los mensajes

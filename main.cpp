@@ -5,12 +5,18 @@
 #include "interpreter.h"
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
     //test
-    return a.exec();*/
-
+    return a.exec();
+    /*string code="int x;\nint z = 9;\ndouble x;";
+    interpreter in;
+    //in.separate_line_code(code);
+    cout<<in.remove_backn(code);
+    in.separate_line_code(in.remove_backn(code));
+    return 0;*/
+/*
     void *memory_start, *memory_current;
     void *space=malloc(500);
     memory_start=space;
@@ -41,19 +47,27 @@ int main(int argc, char *argv[])
     string data5="2543";
 
     string code="int x;"
-                "int y=6;"
-                "x=2;"
-                "y=x;"
-                "x=y+x;"
+                "int y = 6;"
+                "x = 2;"
+                "y = x;"
+                "x = y + x;"
                 "long h;"
                 "double u;"
-                "float b;"
-                "char p;";
-    cout<<code<<endl;
+                "float b;";
+
+    string c="double a;";
+    string c2="a = 5;";
+    string c3="double v = a / a + a;";
     interpreter in;
-    in.separate(code);
+    in.separate_line_code(code+c+c2+c3);
 
+    cout<<in.get_error()<<endl;
+    cout<<in.ex.get_msg()<<endl;
 
+    string test="8.98";
+    double value=stod(test.c_str(),NULL);
+
+    //cout<<"Test "<<value<<endl;
     /*execute ex;
     ex.set_current(memory_current);
     ex.initialize_data(id,data_type,data);
@@ -64,5 +78,5 @@ int main(int argc, char *argv[])
     ex.operation(5,"x","t");
     ex.show_list();*/
 
-    return 0;
+    //return 0;
 }

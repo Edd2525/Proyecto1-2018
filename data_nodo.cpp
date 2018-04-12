@@ -36,7 +36,7 @@ void node::assign_memory(void *current_memory, string data)
         *(float*)this->data=value;
     }else if(op==5){//en caso de que el valor es double
         this->data=current_memory;
-        double value=stod(data.c_str(),NULL);
+        double value=atof(data.c_str());
         *(double*)this->data=value;
     }
 
