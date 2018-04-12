@@ -1,4 +1,5 @@
-        #include "execute.h"
+#include "execute.h"
+#include "string.h"
 
     execute::execute()
     {
@@ -41,10 +42,16 @@
         node *origen=registry.get_node(id1);
         node *operation=registry.get_node(id2);
         int compare=atoi(id2.c_str());
-        if((origen!=NULL && operation!=NULL) || (origen!=NULL && compare!=0)){
+        if((origen!=NULL && operation!=NULL) || (origen!=NULL && compare!=0)
+                || (origen !=NULL && id2.find("'")==0)){
             
-            if(compare!=0){//valores numericos    
-                if(op==1){//asignacion
+            if((compare!=0 || id2.find("'")==0)&&operation==NULL){//valores numericos
+                if(op==1 && id2.find("'")==0){//asignacion
+                    if(id2.find("'")==0){
+                        int x=id2.size();
+                        id2=id2.substr(1,x-2);
+                    }
+
                     if(this->assingnment_value(origen,id2))
                         msg=msg+"Asignacion entre '"+id1+"' con '"+id2+"' correcta\n";
 
@@ -153,7 +160,6 @@
             x=*(int *)origen->get_memory();
             y=*(int *)operation->get_memory();
             *(int *)origen->get_memory()=x+y;
-            cout<<*(int *)origen->get_memory()<<endl;
             return true;
         }else if(op==2){//en caso de ser long
             long x, y;
@@ -235,7 +241,6 @@
             return true;
         }else if(op==3){//en caso de ser char
             error=error+"Char no acepta operacion * \n";
-            //charrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
             return false;
         }else if(op==4){//en caso de ser float
             float x, y;
@@ -271,7 +276,6 @@
             return true;
         }else if(op==3){//en caso de ser char
             error=error+"Char no acepta operacion / \n";
-            //charrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
             return false;
         }else if(op==4){//en caso de ser float
             float x, y;
@@ -304,8 +308,9 @@
             *(long *)origen->get_memory()=y;
             return true;
         }else if(op==3){//en caso de ser char
-            //charrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-            error=error+"Char no acepta operacion \n";
+            char *y;
+            strcpy(y,value.c_str());
+            *(char *)origen->get_memory()=*y;
             return false;
         }else if(op==4){//en caso de ser float
             float y;

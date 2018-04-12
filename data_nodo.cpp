@@ -1,6 +1,6 @@
 #include "data_nodo.h"
 #include "data_nodo.h"
-
+#include "string.h"
 node::node()
 {
     this->next=NULL;
@@ -28,8 +28,11 @@ void node::assign_memory(void *current_memory, string data)
         this->data=current_memory;
         long value=atol(data.c_str());
         *(long*)this->data=value;
-    }else if(op==3){
-        cout<<"NADA"<<endl;
+    }else if(op==3){//caso cuando el valor es un char
+        this->data=current_memory;
+        const char *y=data.c_str();
+        //strcpy(y,data.c_str());
+        *(char *)this->data=*y;
     }else if(op==4){//caso cuando el valor es float
         this->data=current_memory;
         float value=strtof(data.c_str(),NULL);
