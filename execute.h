@@ -80,10 +80,44 @@ public:
      */
     bool divide(node *origen, node *operation);
 
+    /**
+     * @brief assingnment_value operacion de asignar un valor
+     * @param origen            variable donde se guardan los datos
+     * @param value             valor
+     * @return                  retorna true si se realizo correctamente
+     */
     bool assingnment_value(node *origen, string value);
+
+    /**
+     * @brief sum_value operacion de sumar un valor
+     * @param origen    variable donde se guardan los datos
+     * @param value     valor
+     * @return          retorna ture se se realizo correctamente
+     */
     bool sum_value(node *origen, string value);
+
+    /**
+     * @brief subtraction_value operacion de restar un valor
+     * @param origen            variable donde se guardan los datos
+     * @param value             valor
+     * @return                  retorna true si se realizo correctamente
+     */
     bool subtraction_value(node *origen, string value);
+
+    /**
+     * @brief multiply_value    operacion de multiplicar un valor
+     * @param origen            variable donde se guardan los datos
+     * @param value             valor
+     * @return                  retorna true si se realizo correctamente
+     */
     bool multiply_value(node *origen, string value);
+
+    /**
+     * @brief divide_value  operacion de divirir un valor
+     * @param origen        variable donde se guardan los datos
+     * @param value         valor
+     * @return              retorna true si se realizo correctamente
+     */
     bool divide_value(node *origen, string value);
 
     /**

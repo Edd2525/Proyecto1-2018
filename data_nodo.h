@@ -64,6 +64,11 @@ public:
      */
     void print_node();
 
+    /**
+     * @brief print_node_console    mostrar los datos de la lista en la aplicacion
+     * @return                      retorna un string con todos los datos
+     */
+    string print_node_console();
 
     ~node();
 

@@ -21,8 +21,15 @@ void MainWindow::on_run_clicked()
     QString code=ui->code_text->toPlainText();
     in.separate_line_code(in.remove_backn(code.toStdString()));
 
-    //QString cod = QString::fromStdString(in.remove_backn(code.toStdString()));
-    ui->ram_view->setText(QString::fromStdString(in.ex.get_msg()));
-    ui->stdout->setText(QString::fromStdString(in.ex.get_error()));
+    QString list = QString::fromStdString(in.ex.registry.list);
+    QString ok = QString::fromStdString(in.ex.get_msg());
+    QString error = QString::fromStdString(in.ex.get_error());
+
+    cout<<in.ex.msg<<endl;
+    cout<<in.ex.error<<endl;
+
+    ui->ram_view->setText(list);
+    ui->stdout->setText(error);
+    ui->stdout_2->setText(ok);
 
 }

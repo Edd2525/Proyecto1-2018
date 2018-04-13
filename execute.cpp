@@ -46,7 +46,7 @@
                 || (origen !=NULL && id2.find("'")==0)){
             
             if((compare!=0 || id2.find("'")==0)&&operation==NULL){//valores numericos
-                if(op==1 && id2.find("'")==0){//asignacion
+                if(op==1 && (id2.find("'")==0 || compare != 0)){//asignacion
                     if(id2.find("'")==0){
                         int x=id2.size();
                         id2=id2.substr(1,x-2);

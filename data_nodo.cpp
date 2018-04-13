@@ -1,6 +1,7 @@
 #include "data_nodo.h"
 #include "data_nodo.h"
 #include "string.h"
+#include "sstream"
 node::node()
 {
     this->next=NULL;
@@ -89,7 +90,12 @@ string node::get_data()
         string str=to_string(x);
         return str;
     }else if(op==3){
-        return "str";
+        char str_c=*(char *)this->data;
+        string str;
+        stringstream ss;
+        ss << str_c;
+        ss >> str;
+        return str;
     }else if(op==4){
         float x=*(float*)this->data;
         string str=to_string(x);
@@ -151,3 +157,13 @@ void node::print_node()
     else if(op==5)
         cout<<"ID:"<<this->ID<<"  Type:"<<get_data_type()<<"  Memory:"<<this->data<<"  Data:"<<*(double*)this->data<<endl;
 }
+
+string node::print_node_console()
+{
+    std::stringstream ss;
+    ss << this->get_memory();
+    std::string memory = ss.str();
+    string list="Memory: "+memory+"\t ID: "+this->get_id()+"\t Type: "+get_data_type()+"  Data: "+this->get_data()+"\n";
+    return list;
+}
+

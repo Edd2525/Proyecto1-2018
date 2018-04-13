@@ -94,10 +94,12 @@ string data_list::get_data(node *nodo)
 
 void data_list::show_list()
 {
+    list="";
     cout<<"----------------PRINT--------------------"<<endl;
     node *temp=node_head;
     while(temp){
-        temp->print_node();
+        //temp->print_node();
+        list=list+temp->print_node_console();
         temp=temp->next;
     }
 }

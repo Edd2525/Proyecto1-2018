@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include "sstream"
 #include "data_list.h"
 #include "execute.h"
 #include "interpreter.h"
@@ -10,6 +11,14 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 
+    /*void *d=malloc(1);
+    string x="x\t";
+
+    std::stringstream ss;
+    ss << d;
+    std::string direct = ss.str();
+    x=x+direct;
+    cout<<x<<endl;*/
 
     /*string code="int x;\nint z = 9;\ndouble x;";
     interpreter in;

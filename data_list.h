@@ -75,9 +75,10 @@ public:
      */
     void show_list();
 
-private:
+public:
     void *current, *start;
     node *node_head, *node_tail;
+    string list;
 };
 
 #endif // DATA_LIST_H
