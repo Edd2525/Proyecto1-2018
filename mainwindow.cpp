@@ -24,6 +24,7 @@ void MainWindow::on_run_clicked()
     QString list = QString::fromStdString(in.ex.registry.list);
     QString ok = QString::fromStdString(in.ex.get_msg());
     QString error = QString::fromStdString(in.ex.get_error());
+    QString print = QString::fromStdString(in.print);
 
     cout<<in.ex.msg<<endl;
     cout<<in.ex.error<<endl;
@@ -31,5 +32,6 @@ void MainWindow::on_run_clicked()
     ui->ram_view->setText(list);
     ui->stdout->setText(error);
     ui->stdout_2->setText(ok);
+    ui->stdout_3->setText(print);
 
 }

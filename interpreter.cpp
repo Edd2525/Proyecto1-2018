@@ -2,7 +2,7 @@
 
 interpreter::interpreter()
 {
-    msg="";
+    print="";
     void *memory=malloc(500);
     ex.set_current(memory);
 }
@@ -93,8 +93,14 @@ void interpreter::separete_comand_variable(string code)
     string data_opera="";
     x=code.size();
     code=code.substr(0,x-1);//elimina el ; final
+    if(code.find("print")==0){
+        x=code.size();
+        found=code.find("=")+1;
+        code=code.substr(found,x);
+        print_code(code);
 
-    if((found=code.find("int"))==0 || (found=code.find("long"))==0
+    }
+    else if((found=code.find("int"))==0 || (found=code.find("long"))==0
             || (found=code.find("char"))==0|| (found=code.find("float"))==0
             || (found=code.find("double"))==0|| (found=code.find("struct"))==0
             || (found=code.find("reference"))==0){
@@ -143,6 +149,50 @@ void interpreter::separete_comand_variable(string code)
             continue_=false;
     }
     ex.show_list();
+}
+
+void interpreter::print_code(string code)
+{
+    int x;
+    size_t found;
+    bool continue_=true;
+    string print_="";
+    string info_="";
+    string data_;
+    //cout<<code<<endl;
+    while(continue_){
+        if(code.find("'")==0){
+            x=code.size();
+            code=code.substr(1,x);
+            found=code.find("'");
+            info_=info_+code.substr(0,found);
+            code=code.substr(found+1,x);
+
+        }
+        else if(code.find("(")==0){
+            x=code.size();
+            code=code.substr(1,x);
+            found=code.find(")");
+            data_=code.substr(0,found);
+            node *data=ex.registry.get_node(data_);
+            if(data != NULL){
+                info_=info_+data->get_data();
+                code=code.substr(found+1,x);
+            }
+            else{
+                info_=info_+"ERROR";
+                continue_=false;
+            }
+
+            }
+            else
+                continue_=false;
+
+        }
+    print=info_+"\n";
+
+
+
 }
 
 string interpreter::get_error()

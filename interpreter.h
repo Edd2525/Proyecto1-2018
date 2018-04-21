@@ -44,13 +44,15 @@ public:
      * @param code                      segmento de codigo
      */
     void separete_comand_variable(string code);
+
+    void print_code(string code);
     string get_error();
 
 
 
 public:
     execute ex;
-    string msg;
+    string print;
 };
 
 #endif // INTERPRETER_H
